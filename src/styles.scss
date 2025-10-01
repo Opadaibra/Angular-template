@@ -1,1 +1,70 @@
-/* You can add global styles to this file, and also import other style files */
+/* =========================
+   Light Theme Variables
+   ========================= */
+   $light-bg: #f9f9f9;
+   $light-card-bg: #f0f0f0;
+   $light-text: #333;
+   $light-primary: #4caf50;
+   $light-secondary: #2196f3;
+   $light-error: #f44336;
+   
+   /* =========================
+      Dark Theme Variables
+      ========================= */
+   $dark-bg: #1e1e1e;
+   $dark-card-bg: #252525;
+   $dark-text: #eee;
+   $dark-primary: #81c784;
+   $dark-secondary: #64b5f6;
+   $dark-error: #ef5350;
+   
+   /* =========================
+      Theme Classes
+      ========================= */
+   .light-theme {
+     --bg-color: #{$light-bg};
+     --card-bg: #{$light-card-bg};
+     --text-color: #{$light-text};
+     --primary-color: #{$light-primary};
+     --secondary-color: #{$light-secondary};
+     --error-color: #{$light-error};
+   }
+   
+   .dark-theme {
+     --bg-color: #{$dark-bg};
+     --card-bg: #{$dark-card-bg};   
+     --text-color: #{$dark-text};
+     --primary-color: #{$dark-primary};
+     --secondary-color: #{$dark-secondary};
+     --error-color: #{$dark-error};
+   }
+   
+   /* =========================
+      Base Styles
+      ========================= */
+   body {
+     background-color: var(--bg-color);
+     color: var(--text-color);
+     font-family: Arial, sans-serif;
+     transition: all 0.3s ease;
+   }
+   
+   button {
+     padding: 0.4rem 0.8rem;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     color: #fff;
+     background-color: var(--primary-color);
+     transition: background 0.2s ease;
+     
+     &:hover {
+       background-color: var(--secondary-color);
+     }
+   }
+   
+   .error {
+     color: var(--error-color);
+     font-weight: bold;
+   }
+   /* You can add global styles to this file, and also import other style files */

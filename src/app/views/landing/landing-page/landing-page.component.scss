@@ -1,0 +1,104 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    background: linear-gradient(135deg, #6b73ff, #b34c6e);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-inline: 1rem;
+  }
+  
+  .header-buttons {
+    margin-top: 1.5rem;
+  }
+  
+  .header-buttons a {
+    text-decoration: none;
+    color: white;
+    padding: 0.8rem 2rem;
+    margin: 0 0.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .btn-primary {
+    background-color: #ff5e62;
+  }
+  .btn-primary:hover {
+    background-color: #ff3b3f;
+  }
+  .btn-secondary {
+    background-color: #1dd1a1;
+  }
+  .btn-secondary:hover {
+    background-color: #10ac84;
+  }
+  
+  .features, .about, .testimonials, .cta {
+    padding: 4rem 2rem;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .features h2, .about h2, .testimonials h2, .cta h2 {
+    margin-bottom: 2rem;
+  }
+  
+  .feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+  }
+  
+  .theme-toggler{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+  .feature {
+    flex: 1 1 250px;
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+  
+  .testimonial {
+    background: var(--card-bg);
+    margin: 1rem 0;
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+  
+  .testimonial span {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .cta a.btn-large {
+    font-size: 1.5rem;
+    padding: 1rem 3rem;
+  }
+  
+  .footer {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+  
