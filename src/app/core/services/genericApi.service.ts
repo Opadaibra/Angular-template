@@ -5,7 +5,6 @@ import { environment } from '../constants/environment';
 export class GenericApiService<T> {
   protected baseUrl = environment.apiUrl;
 
-  // 👈 هيدرز افتراضية لكل request
   protected defaultHeaders = new HttpHeaders({
     'Accept': 'application/json',
     'Content-Type': 'application/json'
@@ -13,16 +12,21 @@ export class GenericApiService<T> {
 
   constructor(
     protected http: HttpClient,
-    protected endpoint: string // endpoint نسبي فقط
+    protected endpoint: string 
   ) {}
 
   private get fullUrl(): string {
     return `${this.baseUrl}${this.endpoint}`;
   }
 
-  getAll(): Observable<T[]> {
-    return this.http.get<T[]>(`${this.fullUrl}/`, { headers: this.defaultHeaders });
+  getAll(page?: number, pageSize?: number): Observable<any> {
+    let url = `${this.fullUrl}/`;
+    if (page && pageSize) {
+      url += `?page=${page}&page_size=${pageSize}`;
+    }
+    return this.http.get<any>(url, { headers: this.defaultHeaders });
   }
+  
 
   getItem(id: number | string): Observable<T> {
     return this.http.get<T>(`${this.fullUrl}/${id}`, { headers: this.defaultHeaders });

@@ -92,7 +92,7 @@ export class BaseApiService<T, S extends GenericApiService<T>> extends GenericAp
   }
 
   // 🛠️ Helper
-  private handleError(err: any, observer: any) {
+  protected handleError(err: any, observer: any) {
     this.loading = false;
     this.error = err.message;
     observer.error(err);

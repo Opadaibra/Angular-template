@@ -13,12 +13,10 @@ export class ThemeService {
   }
 
   private initTheme() {
-    // 1️⃣ حاول تجيب الثيم من الـ cache
     const savedTheme = this.cache.getItem<'light-theme' | 'dark-theme'>(this.cacheKey);
     if (savedTheme) {
       this.currentTheme = savedTheme;
     } else {
-      // 2️⃣ إذا ما في cache، استعمل system preference
       const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
       this.currentTheme = prefersDark ? 'dark-theme' : 'light-theme';
     }
@@ -28,7 +26,7 @@ export class ThemeService {
   toggleTheme() {
     this.currentTheme = this.currentTheme === 'light-theme' ? 'dark-theme' : 'light-theme';
     this.applyTheme(this.currentTheme);
-    this.cache.setItem(this.cacheKey, this.currentTheme); // 🔐 حفظ بالـ cache
+    this.cache.setItem(this.cacheKey, this.currentTheme); 
   }
 
   private applyTheme(theme: 'light-theme' | 'dark-theme') {

@@ -9,12 +9,11 @@ export class AuthGuard implements CanActivate {
   constructor(private cache: CacheManagerService) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const required = route.data['permission'] as string; // من تعريف الروت
+    const required = route.data['permission'] as string; 
     const userPermissions = this.cache.getItem<string[]>('user_permissions') || [];
     return userPermissions.includes(required);
   }
 
-  // Utility function للاستخدام في [canActivate]
   isAuthorized(permission: string): boolean {
     const userPermissions = this.cache.getItem<string[]>('user_permissions') || [];
     return userPermissions.includes(permission);

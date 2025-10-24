@@ -1,104 +1,244 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .header {
-    position: relative;
+:host {
+  display: block;
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* Header */
+.navbar {
+  background: var(--card-bg);
+  padding: 1rem 0;
+  .container {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    height: 50vh;
-    background: linear-gradient(135deg, #6b73ff, #b34c6e);
-    color: white;
-    text-align: center;
-    padding: 2rem;
-    border-radius: 8px;
-    margin-inline: 1rem;
   }
-  
-  .header-buttons {
-    margin-top: 1.5rem;
-  }
-  
-  .header-buttons a {
-    text-decoration: none;
-    color: white;
-    padding: 0.8rem 2rem;
-    margin: 0 0.5rem;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-  
-  .btn-primary {
-    background-color: #ff5e62;
-  }
-  .btn-primary:hover {
-    background-color: #ff3b3f;
-  }
-  .btn-secondary {
-    background-color: #1dd1a1;
-  }
-  .btn-secondary:hover {
-    background-color: #10ac84;
-  }
-  
-  .features, .about, .testimonials, .cta {
-    padding: 4rem 2rem;
-    max-width: 900px;
-    margin: auto;
-    text-align: center;
-  }
-  
-  .features h2, .about h2, .testimonials h2, .cta h2 {
-    margin-bottom: 2rem;
-  }
-  
-  .feature-list {
+  .brand {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--secondary-color);
     display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  nav {
+    display: flex;
+    gap: 1rem;
+    a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      &:hover {
+        color: var(--secondary-color);
+      }
+    }
+  }
+  .togglers {
+    display: flex;
+    gap: 0.5rem;
+  }
+}
+
+/* Hero */
+.hero {
+  padding: 3rem 0;
+  .hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    justify-content: space-around;
     gap: 2rem;
   }
-  
-  .theme-toggler{
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
   }
-  .feature {
-    flex: 1 1 250px;
-    background: var(--card-bg);
-    padding: 1.5rem;
-    border-radius: 10px;
+  p {
+    max-width: 500px;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
   }
-  
-  .testimonial {
-    background: var(--card-bg);
-    margin: 1rem 0;
-    padding: 1.5rem;
-    border-radius: 10px;
+  .preview-img {
+    max-width: 400px;
   }
-  
-  .testimonial span {
-    display: block;
-    margin-top: 0.5rem;
-    font-weight: bold;
-  }
-  
-  .cta a.btn-large {
-    font-size: 1.5rem;
-    padding: 1rem 3rem;
-  }
-  
-  .footer {
-    background: #111;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+/* Dropdown content */
+.dropdown-content.theme-aware {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: none;
+  position: absolute;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Dropdown links */
+.dropdown-content.theme-aware a {
+  color: var(--text-color);
+}
+
+.dropdown-content.theme-aware a:hover {
+  background-color: rgba(0,0,0,0.1); /* subtle hover, works on both themes */
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content.theme-aware {
+  display: block;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background 0.2s;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.7rem 1.3rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &.primary {
+    background: var(--secondary-color);
     color: #fff;
-    text-align: center;
-    padding: 2rem;
+    margin-inline: 0.5vw;
+    &:hover {
+      background: var(--primary-color);
+    }
+  }
+
+  &.outline {
+    border: 1px solid var(--secondary-color);
+    color: var(--text-color);
+    &:hover {
+      background: var(--card-bg);
+    }
+  }
+}
+
+/* Feature Sections */
+.feature-section {
+  padding: 3rem 0;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  .feature-icon {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.75rem;
+  }
+  .section-header {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+  }
+  h2 {
+    font-size: 1.7rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    opacity: 0.9;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
     margin-top: 2rem;
   }
-  
+  .card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    &:hover {
+      transform: translateY(-5px);
+    }
+    i {
+      font-size: 1.8rem;
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+    }
+    h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    p {
+      opacity: 0.85;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+/* Contact */
+.contact {
+  padding: 3rem 0;
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+  color: #fff;
+  .btn {
+    background: #fff;
+    color: var(--secondary-color);
+  }
+}
+
+.ms-1{
+  margin-inline-start: 1vw;
+}
+/* Footer */
+.footer {
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}

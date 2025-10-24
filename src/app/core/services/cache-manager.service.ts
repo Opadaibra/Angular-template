@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CacheManagerService {
-  private secretKey = 'my-secret-key'; // 🔑 بدك تغيره/تطوره لاحقاً
+  private secretKey = 'my-secret-key'; 
 
   setItem(key: string, value: any): void {
     const encrypted = this.encrypt(JSON.stringify(value));

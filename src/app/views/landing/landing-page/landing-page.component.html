@@ -1,60 +1,286 @@
-<header class="header">
-  <app-theme-toggle class="theme-toggler"></app-theme-toggle>
-  <h1>Welcome to MyApp</h1>
-  <p>Your ultimate platform for amazing stuff!</p>
-  <div class="header-buttons">
-    <a routerLink="/login" class="btn btn-primary">Login</a>
-    <a routerLink="/register" class="btn btn-secondary">Sign Up</a>
-  </div>
-</header>
+<div class="landing" dir="ltr">
+  <header class="navbar w-50">
+    <div class="container">
+      <div class="brand animate__animated animate__flash"><i class="fa-solid fa-bolt "></i> Angular Template</div>
+      <nav>
+        <ng-container *ngFor="let link of links; let i = index">
+          <a 
+            [href]="link.href" 
+            class="animate__animated animate__bounceIn"
+            [ngStyle]="{'animation-delay': (i * 0.3) + 's'}">
+            {{ link.label }}
+          </a>
+        </ng-container>
+        
 
-<section class="features">
-  <h2>Our Features</h2>
-  <div class="feature-list">
-    <div class="feature">
-      <h3>Feature 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae.</p>
+      </nav>
+
+
+      <div class="togglers" >
+        <app-language-switcher 
+        class="animate__animated animate__heartBeat" 
+        [ngStyle]="{'animation-delay': (5000) + 's'}"></app-language-switcher>
+        <app-theme-toggle></app-theme-toggle>
+      </div>
     </div>
-    <div class="feature">
-      <h3>Feature 2</h3>
-      <p>Aliquam erat volutpat. Praesent tincidunt velit eget quam suscipit.</p>
+  </header>
+
+
+  <section class="hero" id="home">
+    <div class="container hero-content" data-aos="fade-right">
+      <div>
+        <h1>Angular Starter Template</h1>
+        <p>
+          A modern Angular base project with strong architecture
+        </p>
+        <div class="actions">
+          <a routerLink="/register" class="btn primary">Get Started</a>
+          <a routerLink="/docs" class="btn outline">Documentation</a>
+        </div>
+      </div>
+
     </div>
-    <div class="feature">
-      <h3>Feature 3</h3>
-      <p>Fusce non ante vel libero finibus venenatis. Suspendisse potenti.</p>
+  </section>
+
+  <section class="feature-section" id="api">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="feature-icon"><i class="fa-solid fa-code"></i></div>
+        <h2>Strong API Service (3 Layers)</h2>
+        <p>
+          Built on clean architecture: Service → Repository → Model. Designed for scalability, error handling, and
+          performance.
+        </p>
+      </div>
+
+      <div class="cards">
+        <div class="card" data-aos="fade-right">
+          <i class="fa-solid fa-network-wired"></i>
+          <h3>Repository Layer</h3>
+          <p>Handles all API endpoints and routes in one unified place.</p>
+        </div>
+        <div class="card" data-aos="fade-down">
+          <i class="fa-solid fa-database"></i>
+          <h3>Service Layer</h3>
+          <p>Acts as a bridge between components and repositories, managing logic and caching.</p>
+        </div>
+        <div class="card" data-aos="fade-left">
+          <i class="fa-solid fa-bug-slash"></i>
+          <h3>Error Handling</h3>
+          <p>Centralized interceptor for managing logs, retries, and global errors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-section" id="theme" data-aos="fade-up">
+    <div class="container">
+      <div class="section-header">
+        <div class="feature-icon"><i class="fa-solid fa-sun"></i></div>
+        <h2>Dark & Light Theme</h2>
+        <p>
+          Dynamic CSS variable-based system that adapts instantly to user preferences.
+        </p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <i class="fa-solid fa-moon"></i>
+          <h3>Dark Mode</h3>
+          <p>Modern dark theme for better visual comfort and contrast.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-sun"></i>
+          <h3>Light Mode</h3>
+          <p>Clean and minimal look for clear visibility and readability.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-toggle-on"></i>
+          <h3>Theme Switcher</h3>
+          <p>Instant toggle with smooth transitions and saved user preference.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-section" id="localization" data-aos="fade-up">
+    <div class="container">
+      <div class="section-header">
+        <div class="feature-icon"><i class="fa-solid fa-language"></i></div>
+        <h2>Localization Support</h2>
+        <p>Fully supports multi-language with on-demand JSON loading and caching.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <i class="fa-solid fa-globe"></i>
+          <h3>Multi-language</h3>
+          <p>Supports English, Arabic, and more with easy extension.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-database"></i>
+          <h3>Cached Translations</h3>
+          <p>Stores translations locally for instant page rendering.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-user-gear"></i>
+          <h3>Language Detection</h3>
+          <p>Detects user browser language automatically on first visit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-section" id="cache" data-aos="fade-up">
+    <div class="container">
+      <div class="section-header">
+        <div class="feature-icon"><i class="fa-solid fa-lock"></i></div>
+        <h2>Encrypted Cache Service</h2>
+        <p>Protects user data using AES encryption with automatic expiry.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <i class="fa-solid fa-key"></i>
+          <h3>Data Encryption</h3>
+          <p>Every cached object is AES-encrypted before storage.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-clock"></i>
+          <h3>Cache Expiry</h3>
+          <p>Supports time-based cache expiration and auto-refresh.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-shield"></i>
+          <h3>Secure LocalStorage</h3>
+          <p>Prevents exposure of tokens or sensitive data in plain text.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-section" id="interceptor" data-aos="fade-up">
+    <div class="container">
+      <div class="section-header">
+        <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h2>Interceptor & Dialog Services</h2>
+        <p>Handles authentication, errors, and unified dialogs globally.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <i class="fa-solid fa-user-lock"></i>
+          <h3>Token Injection</h3>
+          <p>Automatically adds JWT tokens to every outgoing request.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-bug"></i>
+          <h3>Error Interception</h3>
+          <p>Intercepts and formats backend errors for better UX.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-comment-dots"></i>
+          <h3>Dialog Service</h3>
+          <p>Shows alerts, confirmations, and toast notifications uniformly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="feature-section" id="redux" data-aos="fade-up">
+    <div class="container">
+      <div class="section-header">
+        <div class="feature-icon"><i class="fa-solid fa-diagram-project"></i></div>
+        <h2>Redux State Management</h2>
+        <p>Centralized and reactive data flow system for entire app control.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <i class="fa-solid fa-layer-group"></i>
+          <h3>Central Store</h3>
+          <p>Unifies all data sources and components under one store.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-chart-line"></i>
+          <h3>Reactive Updates</h3>
+          <p>Instant reactivity between UI and state using RxJS streams.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-code-branch"></i>
+          <h3>Debugging Tools</h3>
+          <p>Built-in dev tools for tracking actions and state history.</p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <section class="feature-section" id="animations" data-aos="fade-up">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="feature-icon"><i class="fa-solid fa-star"></i></div>
+        <h2>Animations Powered by AOS & Animate.css</h2>
+        <p>Enhance user experience with smooth scroll-based animations and dynamic effects.</p>
+      </div>
+  
+      <div class="cards">
+        <div class="card " 
+             data-aos="fade-right" 
+             data-aos-delay="0" 
+             style="animation-delay: 0s;">
+          <i class="fa-solid fa-arrow-up-right-dots"></i>
+          <h3>Scroll Animations</h3>
+          <p>Elements animate as you scroll using AOS for smooth entrance effects.</p>
+        </div>
+  
+        <div class="card " 
+             data-aos="fade-up" 
+             data-aos-delay="200" 
+             style="animation-delay: 0.2s;">
+          <i class="fa-solid fa-clock"></i>
+          <h3>Custom Timing</h3>
+          <p>Control duration, delay, and easing for Animate.css effects and AOS animations.</p>
+        </div>
+  
+        <div class="card " 
+             data-aos="fade-left" 
+             style="animation-delay: 0.4s;">
+          <i class="fa-solid fa-magic"></i>
+          <h3>Reusable Effects</h3>
+          <p>Combine both libraries to make animations reusable and visually appealing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+<!-- Contact -->
+<section class="contact" id="contact" data-aos="fade-up">
+  <div class="container text-center">
+    <h2>Let's Connect!</h2>
+    <p>Interested in the template or a collaboration? Reach out to me:</p>
+
+    <div class="contact-links" >
+      <a href="https://opadaibra.github.io/portfolio/" target="_blank" class="btn">
+        <i class="fa-solid fa-folder-open"></i> Portfolio
+      </a>
+      <a href="https://linkedin.com/in/obada-ibra-b28354247" target="_blank" class="btn ms-1">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://github.com/Opadaibra" target="_blank" class="btn ms-1">
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+    </div>
+
+    <div class="contact-phone" style="margin-top: 1rem;">
+      <p><i class="fa-solid fa-phone"></i> +963 988 796 741</p>
+      <p><i class="fa-solid fa-phone"></i> +963 962 934 928</p>
     </div>
   </div>
 </section>
 
-<section class="about">
-  <h2>About Us</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus nec nulla consectetur ullamcorper.
-    Donec euismod, ligula a dignissim convallis, velit lectus porttitor quam, a convallis elit risus ac magna.</p>
-  <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer nec libero nec leo
-    ultricies tincidunt.</p>
-</section>
 
-<section class="testimonials">
-  <h2>What Our Users Say</h2>
-  <div class="testimonial">
-    <p>"This platform changed my life! Highly recommended."</p>
-    <span>- User A</span>
-  </div>
-  <div class="testimonial">
-    <p>"Amazing features and great support."</p>
-    <span>- User B</span>
-  </div>
-  <div class="testimonial">
-    <p>"I can’t imagine working without it anymore."</p>
-    <span>- User C</span>
-  </div>
-</section>
-
-<section class="cta">
-  <h2>Get Started Today</h2>
-  <a routerLink="/register" class="btn btn-primary btn-large">Sign Up Now</a>
-</section>
-
-<footer class="footer">
-  <p>&copy; 2025 MyApp. All rights reserved.</p>
-</footer>
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <p>© 2025 Angular Template — Crafted by Obada ibraheem</p>
+  </footer>
+</div>
